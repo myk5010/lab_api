@@ -11,3 +11,6 @@ ROUTES = [
     UserResource('/api/users').routes(),
     JWTRoutes('/token'),
 ]
+
+from masonite.auth import Auth 
+ROUTES += Auth.routes()

@@ -31,6 +31,10 @@ AUTH = {
                 }
             }
         },
+        'api': {
+            'driver': 'jwt',
+            'model': User,
+        },
     }
 }
 

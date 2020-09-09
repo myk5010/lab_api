@@ -1,0 +1,24 @@
+from orator.migrations import Migration
+
+
+class CreateUserTable(Migration):
+
+    def up(self):
+        """
+        Run the migrations.
+        """
+        with self.schema.create('user') as table:
+            table.increments('id')
+            table.string('name')
+            table.string('email').unique()
+            table.string('password')
+            table.string('remember_token').nullable()
+            table.timestamp('verified_at').nullable()
+            table.timestamps()
+
+
+    def down(self):
+        """
+        Revert the migrations.
+        """
+        self.schema.drop('user')
